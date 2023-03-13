@@ -25,13 +25,13 @@ The first test is telling us that `currentUser` is not defined. Let's go to
 `index.js` and write the following code:
 
 ```js
-const currentUser = 'Grace Hopper';
+const currentUser = "Grace Hopper";
 ```
 
 > **Note**: Generally, when the tests ask you to define something, you want to
 > define it exactly as indicated in the test. But in this case, you don't have
 > to write `'Grace Hopper'`, because the important part is the variable name:
-> `currentUser`.  You can use your own name, your pet's name, your favorite
+> `currentUser`. You can use your own name, your pet's name, your favorite
 > programmer's name — whatever you'd like.
 
 Rerun the tests and you should see that the first one is passing.
@@ -45,9 +45,9 @@ Let's return to `index.js` and define our second variable below where we
 declared `currentUser`:
 
 ```js
-const currentUser = 'Grace Hopper';
+const currentUser = "Grace Hopper";
 
-const welcomeMessage = 'Welcome to Flatbook, ';
+const welcomeMessage = "Welcome to Flatbook, ";
 ```
 
 Rerun the tests; you should see a second passing test.
@@ -58,7 +58,7 @@ let's try it out. Let's erase `'Welcome to Flatbook, '` and set `welcomeMessage`
 equal to `currentUser` instead:
 
 ```js
-const currentUser = 'Grace Hopper';
+const currentUser = "Grace Hopper";
 
 const welcomeMessage = currentUser;
 ```
@@ -72,9 +72,9 @@ Flatbook, '` and the value stored in `currentUser`. Maybe we can include both of
 them in a single string?
 
 ```js
-const currentUser = 'Grace Hopper';
+const currentUser = "Grace Hopper";
 
-const welcomeMessage = 'Welcome to Flatbook, currentUser';
+const welcomeMessage = "Welcome to Flatbook, currentUser";
 ```
 
 If we rerun the tests, we're once again passing the second test, but we're back
@@ -92,7 +92,7 @@ the value stored in `currentUser`. Instead, `welcomeMessage` contains the
 literal string `"currentUser"`. It's important to understand the distinction:
 
 - `currentUser` is a _variable_ that contains a string (`'Grace Hopper'` in our examples).
-- `'currentUser'` is a _string_, ***not a variable***.
+- `'currentUser'` is a _string_, **_not a variable_**.
 
 The JavaScript engine sees a matching pair of single quotes (`' '`), creates a
 new string, and assumes that _everything_ in between the matching punctuation
@@ -129,7 +129,15 @@ JavaScript is with the `+` operator, like so:
 "High " + "five!";
 //=> "High five!"
 
-"We" + ' ' + `can` + " " + 'concat' + `enate` + " as many strings " + 'as our heart ' + `desires.`;
+"We" +
+  " " +
+  `can` +
+  " " +
+  "concat" +
+  `enate` +
+  " as many strings " +
+  "as our heart " +
+  `desires.`;
 //=> "We can concatenate as many strings as our heart desires."
 ```
 
@@ -138,9 +146,9 @@ end of `'Welcome to Flatbook, '` to dynamically create a new string based on
 whatever value `currentUser` contains at a given moment:
 
 ```js
-const currentUser = 'Grace Hopper';
+const currentUser = "Grace Hopper";
 
-const welcomeMessage = 'Welcome to Flatbook, ' + currentUser;
+const welcomeMessage = "Welcome to Flatbook, " + currentUser;
 ```
 
 If we run the test suite with our updated code, we'll see both the second and
@@ -154,7 +162,7 @@ are simply strings wrapped in backticks rather than single or double quotes.
 Template literals enable us to interpolate the value of a variable into a string
 by wrapping the variable in curly braces preceded by a dollar sign:
 `${yourVariable}`. The `${}`, when inside backticks, tells the JavaScript engine
-that it needs to *interpret the value* of `yourVariable` and insert that value
+that it needs to _interpret the value_ of `yourVariable` and insert that value
 into the string. If you forget to use the backticks and use single or double
 quotes instead, the dollar sign, curly braces and variable name will all be
 inserted into the string instead of the variable's value.
@@ -164,13 +172,15 @@ multi-line strings. Wrapping the string in backticks preserves any new lines
 when the string is returned or output.
 
 ```js
-const myString = 'template literal';
+const myString = "template literal";
 
 const myNumber = 10;
 
 const myBoolean = false;
 
-`Saying that interpolation with ${myString}s is better than concatenation ${90 + myNumber}% of the time is simply ${myBoolean}. But it is pretty cool!
+`Saying that interpolation with ${myString}s is better than concatenation ${
+  90 + myNumber
+}% of the time is simply ${myBoolean}. But it is pretty cool!
 
 Beware that new lines inside of a ${myString} will be preserved as new lines in the resulting ${typeof myString}!`;
 //=> "Saying that interpolation with template literals is better than concatenation 100% of the time is simply false. But it is pretty cool!
@@ -180,7 +190,7 @@ Beware that new lines inside of a ${myString} will be preserved as new lines in 
 
 Note that, in the example above, one of the things we interpolated into our
 string is an arithmetic expression: `${90 + myNumber}`. We aren't limited to
-interpolating just variables — we can use *any expression* inside the
+interpolating just variables — we can use _any expression_ inside the
 curly braces.
 
 While, for most purposes, the choice of whether to use concatenation or string
@@ -190,7 +200,7 @@ programmers tend to use string interpolation for all but the simplest of cases.
 Let's rewrite our `welcomeMessage` to use a template literal:
 
 ```js
-const currentUser = 'Grace Hopper';
+const currentUser = "Grace Hopper";
 
 const welcomeMessage = `Welcome to Flatbook, ${currentUser}`;
 ```
@@ -200,7 +210,7 @@ The first three tests are still passing, but the fourth wants our
 adding a `!` as the last character in the template literal:
 
 ```js
-const currentUser = 'Grace Hopper';
+const currentUser = "Grace Hopper";
 
 const welcomeMessage = `Welcome to Flatbook, ${currentUser}!`;
 ```
@@ -212,13 +222,13 @@ Four tests down, six to go!
 ### `excitedWelcomeMessage`
 
 Sometimes we get so excited when someone logs into their Flatbook account that
-we just want to shout out loud. We *could* copy over most of the code from
+we just want to shout out loud. We _could_ copy over most of the code from
 `welcomeMessage` and then change every character to its uppercase equivalent,
 but as developers we try not to repeat ourselves. Instead, let's use the
 `.toUpperCase()` string method:
 
 ```js
-const currentUser = 'Grace Hopper';
+const currentUser = "Grace Hopper";
 
 const welcomeMessage = `Welcome to Flatbook, ${currentUser}!`;
 
@@ -228,8 +238,8 @@ const excitedWelcomeMessage = welcomeMessage.toUpperCase();
 All strings in JavaScript have access to the same set of default methods, which
 are common operations like changing a string and returning the new version,
 searching through a string for specific character(s) and returning the match,
-and so on. For example, we can use [`.toUpperCase()`][toUpperCase] and
-[`.toLowerCase()`][toLowerCase] on a string to make the entire string uppercase
+and so on. For example, we can use [`.toUpperCase()`][touppercase] and
+[`.toLowerCase()`][tolowercase] on a string to make the entire string uppercase
 or lowercase. There are lots of other [string methods][string methods] that
 you'll find useful at various points throughout your JavaScript programming
 career.
@@ -309,7 +319,7 @@ shortGreeting
 ```
 
 The test suite checks that `shortGreeting` contains the first character in
-`currentUser` (`G` in our example) and that it *doesn't* contain the rest of the
+`currentUser` (`G` in our example) and that it _doesn't_ contain the rest of the
 string (`race Hopper`).
 
 There are a few different ways we could get just the first character of
@@ -317,10 +327,10 @@ There are a few different ways we could get just the first character of
 method][character access] to grab the character at index `0`:
 
 ```js
-'Edsger Dijkstra'[0];
+"Edsger Dijkstra"[0];
 //=> "E"
 
-'Edsger Dijkstra'.charAt(0);
+"Edsger Dijkstra".charAt(0);
 //=> "E"
 ```
 
@@ -341,7 +351,7 @@ the following description:
 > string, without modifying the original string.
 
 The method takes two arguments: the index at which the extraction should begin
-and the index *before which* it should end. When we talk about indexes of a
+and the index _before which_ it should end. When we talk about indexes of a
 string, we're talking about how to access specific characters at various points
 within the string. Recall that computers start counting with 0. Because we start
 at index `0` instead of `1`, the index of each character in a string is always
@@ -351,13 +361,13 @@ index of the last character is always one less than the [length][length] of the
 string:
 
 ```js
-'Edsger Dijkstra'.length;
+"Edsger Dijkstra".length;
 //=> 15
 
-'Edsger Dijkstra'[15];
+"Edsger Dijkstra"[15];
 //=> undefined
 
-'Edsger Dijkstra'[14];
+"Edsger Dijkstra"[14];
 //=> "a"
 ```
 
@@ -365,7 +375,7 @@ If we omit both arguments, `.slice()` will return a full copy of the original
 string:
 
 ```js
-'Edsger Dijkstra'.slice();
+"Edsger Dijkstra".slice();
 //=> "Edsger Dijkstra"
 ```
 
@@ -374,7 +384,7 @@ to the end of the string. For example, to grab Dijkstra's last name, we could
 start the slice on index `7`:
 
 ```js
-'Edsger Dijkstra'.slice(7);
+"Edsger Dijkstra".slice(7);
 //=> "Dijkstra"
 ```
 
@@ -383,7 +393,7 @@ as the first argument, the index at which to start, and `3` as the second
 argument, the index before which to end:
 
 ```js
-'Edsger Dijkstra'.slice(0, 3);
+"Edsger Dijkstra".slice(0, 3);
 //=> "Eds"
 ```
 
@@ -413,22 +423,22 @@ Great work!
 
 ## Resources
 
-- [StackExchange – How to open the JavaScript console][open JS console]
+- [StackExchange – How to open the JavaScript console][open js console]
 - [MDN — Template literals][template literals]
-- [DRY — Don't Repeat Yourself][DRY]
+- [DRY — Don't Repeat Yourself][dry]
 - [MDN — String — `.length`][length]
 - [MDN — String — Character access][character access]
 - [MDN — String — Methods][string methods]
-  - [MDN — `.toUpperCase()`][toUpperCase]
-  - [MDN — `.toLowerCase()`][toLowerCase]
+  - [MDN — `.toUpperCase()`][touppercase]
+  - [MDN — `.toLowerCase()`][tolowercase]
   - [MDN — `.slice()`][slice]
 
-[open JS console]: https://webmasters.stackexchange.com/questions/8525/how-do-i-open-the-javascript-console-in-different-browsers/77337#77337
+[open js console]: https://webmasters.stackexchange.com/questions/8525/how-do-i-open-the-javascript-console-in-different-browsers/77337#77337
 [template literals]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
-[DRY]: https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
+[dry]: https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
 [string methods]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2
 [length]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length
 [character access]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Character_access
-[toUpperCase]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase
-[toLowerCase]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
+[touppercase]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase
+[tolowercase]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
 [slice]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice
